@@ -1,26 +1,277 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================
+   LIGHT THEME
+========================================================== */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background */
+  --background: #f9f9f9;
+  --surface: #ffffff;
+  --card: #ffffff;
+
+  /* Text */
+  --foreground: #111111;
+  --text-secondary: #646464;
+  --text-muted: #a7a7a7;
+
+  /* Brand */
+  --primary: #e85002;
+  --primary-hover: #f16001;
+  --primary-dark: #c10801;
+
+  /* Border */
+  --border: #e6e6e6;
+
+  /* Neutral */
+  --white: #f9f9f9;
+  --light-gray: #a7a7a7;
+  --gray: #646464;
+  --dark-gray: #333333;
+
+  /* Radius */
+  --radius: 18px;
+
+  /* Gradient */
+  --brand-gradient: linear-gradient(
+    87.84deg,
+    #fff7ee 0%,
+    #f16001 18%,
+    #c10801 55%,
+    #000000 100%
+  );
+
+  /* shadcn */
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+
+  --primary-foreground: #ffffff;
+
+  --secondary: #f3f3f3;
+  --secondary-foreground: #111111;
+
+  --muted: #f3f3f3;
+  --muted-foreground: #777777;
+
+  --accent: #f3f3f3;
+  --accent-foreground: #111111;
+
+  --destructive: #ef4444;
+
+  --input: #e5e5e5;
+
+  --ring: #e85002;
+
+  --chart-1: #e85002;
+  --chart-2: #f16001;
+  --chart-3: #c10801;
+  --chart-4: #646464;
+  --chart-5: #333333;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #e85002;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f3f3;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #e85002;
 }
+
+/* ==========================================================
+   DARK THEME
+========================================================== */
+
+.dark {
+  --background: #000000;
+  --surface: #111111;
+  --card: #181818;
+
+  --foreground: #f9f9f9;
+  --text-secondary: #a7a7a7;
+  --text-muted: #646464;
+
+  --primary: #e85002;
+  --primary-hover: #f16001;
+  --primary-dark: #c10801;
+
+  --border: rgba(255,255,255,.08);
+
+  --white: #f9f9f9;
+  --light-gray: #a7a7a7;
+  --gray: #646464;
+  --dark-gray: #333333;
+
+  --brand-gradient: linear-gradient(
+    87.84deg,
+    #fff7ee 0%,
+    #f16001 18%,
+    #c10801 55%,
+    #000000 100%
+  );
+
+  --popover: #181818;
+  --popover-foreground: #f9f9f9;
+
+  --primary-foreground: #ffffff;
+
+  --secondary: #222222;
+  --secondary-foreground: #f9f9f9;
+
+  --muted: #222222;
+  --muted-foreground: #a7a7a7;
+
+  --accent: #222222;
+  --accent-foreground: #f9f9f9;
+
+  --destructive: #ef4444;
+
+  --input: rgba(255,255,255,.08);
+
+  --ring: #e85002;
+
+  --chart-1: #e85002;
+  --chart-2: #f16001;
+  --chart-3: #c10801;
+  --chart-4: #646464;
+  --chart-5: #333333;
+
+  --sidebar: #111111;
+  --sidebar-foreground: #f9f9f9;
+  --sidebar-primary: #e85002;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #222222;
+  --sidebar-accent-foreground: #f9f9f9;
+  --sidebar-border: rgba(255,255,255,.08);
+  --sidebar-ring: #e85002;
+}
+
+/* ==========================================================
+   Tailwind Theme
+========================================================== */
 
 @theme inline {
+
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-border: var(--border);
+
+  --color-light-gray: var(--light-gray);
+  --color-gray: var(--gray);
+  --color-dark-gray: var(--dark-gray);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-input: var(--input);
+
+  --color-ring: var(--ring);
+
+  --color-destructive: var(--destructive);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Fonts */
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ==========================================================
+   Base
+========================================================== */
+
+@layer base {
+
+  *{
+    @apply border-border;
   }
+
+  html{
+    font-family: var(--font-body);
+  }
+
+  body{
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    min-height:100vh;
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    font-family: var(--font-heading);
+  }
+
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================
+   Utilities
+========================================================== */
+
+@layer utilities{
+
+  .bg-brand-gradient{
+    background:var(--brand-gradient);
+  }
+
+  .text-gradient{
+    background:var(--brand-gradient);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+  }
+
+  .glass{
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+  }
+
+  .orange-glow{
+    box-shadow:
+      0 0 20px rgba(232,80,2,.35),
+      0 0 50px rgba(232,80,2,.25),
+      0 0 90px rgba(232,80,2,.15);
+  }
+
 }
