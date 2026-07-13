@@ -74,18 +74,24 @@ export default function HomePage() {
   }, [router]);
 
   return (
-    <main ref={containerRef} className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+    <main
+      ref={containerRef}
+      className="relative flex min-h-screen w-full items-center justify-center"
+    >
       <Image
         ref={backgroundRef}
-        src={IMAGES.BACKGROUND1}
+        src={IMAGES.BACKGROUND}
         alt=""
         fill
         priority
         quality={100}
         sizes="100vw"
-        className="absolute inset-0 -z-10 object-cover"
+        className="absolute inset-0 z-0 object-cover"
       />
-      <div ref={transitionRef} className="pointer-events-none absolute inset-0 z-50 bg-black/95 opacity-0" />
+      <div
+        ref={transitionRef}
+        className="pointer-events-none absolute inset-0 z-1 bg-black/95 opacity-0"
+      />
       <div className="flex flex-col items-center justify-center gap-4">
         <Image
           ref={logoRef}

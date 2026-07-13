@@ -35,10 +35,19 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(funnelDisplay.variable, instrumentSans.variable, "font-sans", geist.variable)}
+      className={cn(
+        funnelDisplay.variable,
+        instrumentSans.variable,
+        "font-sans",
+        geist.variable,
+      )}
     >
-      <body className="min-h-screen bg-background flex justify-center text-foreground antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="h-full bg-black flex justify-center antialiased">
+        <ThemeProvider>
+          <div className="relative w-full max-w-125">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
