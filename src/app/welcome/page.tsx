@@ -4,11 +4,12 @@ import Link from 'next/link';
 import { IMAGES } from '../constants/images';
 import Image from 'next/image';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
-
-
+import { useRouter } from 'next/navigation';
 
 
 export default function WelcomePage() {
+  const router = useRouter();
+  
   
   return (
     <main
@@ -31,10 +32,15 @@ export default function WelcomePage() {
         <p className="text-lg text-white">
           Manage meals, expenses, payments, and members—all in one place.
         </p>
-        <PrimaryButton>Sign up</PrimaryButton>
+        <PrimaryButton onClick={() => router.push("/register")}>
+          Get Started
+        </PrimaryButton>
         <p>
           Already have an account?{" "}
-          <a href="/login" className="text-primary text-shadow-2xl font-semibold px-1">
+          <a
+            href="/login"
+            className="text-primary text-shadow-2xl font-semibold px-1"
+          >
             Log in here.
           </a>
         </p>
