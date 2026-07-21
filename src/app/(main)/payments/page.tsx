@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
-  return (
-    <div>page</div>
+import Payments from "@/screens/Payments/Payments";
+
+export default function PaymentsPage() {
+  return (  
+   <Payments />
   );
 };
-
-export default page;

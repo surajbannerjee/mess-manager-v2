@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
+import Profile from "@/screens/Profile/Profile";
+
+export default function ProfilePage() {
   return (
-    <div>page</div>
+    <Profile />
   );
 };
-
-export default page;

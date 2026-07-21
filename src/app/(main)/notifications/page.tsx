@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
+import Notifications from "@/screens/Notifications/Notifications";
+
+export default function NotificationsPage() {
   return (
-    <div>page</div>
+    <Notifications />
   );
 };
-
-export default page;

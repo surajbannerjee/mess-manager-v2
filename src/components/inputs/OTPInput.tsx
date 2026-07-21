@@ -15,7 +15,7 @@ interface OTPInputProps {
 }
 
 export default function OTPInput({
-  length = 6,
+  length = 4,
   value,
   onChange,
   autoFocus = true,
@@ -97,7 +97,7 @@ export default function OTPInput({
   };
 
   return (
-    <div className={cn("flex justify-between gap-3", className)}>
+    <div className={cn("flex justify-between gap-1", className)}>
       {Array.from({ length }).map((_, index) => (
         <input
           key={index}

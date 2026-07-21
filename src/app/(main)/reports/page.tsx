@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
+import Reports from "@/screens/Reports/Reports";
+
+export default function ReportsPage() {
   return (
-    <div>page</div>
+   <Reports/>
   );
 };
-
-export default page;

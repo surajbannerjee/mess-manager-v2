@@ -36,7 +36,7 @@ const PrimaryButton = ({
     <button
       disabled={disabled || loading}
       className={cn(
-        "inline-flex py-3.5 items-center tracking-wide justify-center rounded-2xl px-6 text-5 scale-100 font-bold uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex py-3.5 items-center tracking-wide justify-center rounded-2xl px-6 text-base scale-100 font-bold uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50",
         fullWidth && "w-full",
         variants[variant],
         className,

@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
+import Chat from "@/screens/Chat/Chat";
+
+export default function ChatPage() {
   return (
-    <div>page</div>
+  <Chat/>
   );
 };
-
-export default page;

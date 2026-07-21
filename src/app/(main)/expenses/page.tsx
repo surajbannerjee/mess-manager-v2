@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
+import Expenses from "@/screens/Expenses/Expenses";
+
+export default function ExpensesPage() {
   return (
-    <div>page</div>
+    <Expenses />
   );
 };
-
-export default page;

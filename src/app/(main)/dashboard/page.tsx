@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
+import Dashboard from "@/screens/DashBoard/DashBoard";
+
+export default function DashboardPage() {
   return (
-    <div>page</div>
+    <Dashboard />
   );
 };
-
-export default page;

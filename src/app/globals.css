@@ -95,9 +95,9 @@
   --text-secondary: #a7a7a7;
   --text-muted: #646464;
 
-  --primary: #e85002;
+  --primary:  #c10801;
   --primary-hover: #f16001;
-  --primary-dark: #c10801;
+  --primary-dark: #e85002;
 
   --border: rgba(255,255,255,.08);
 
@@ -235,14 +235,14 @@
   body{
     @apply bg-background text-foreground;
     font-family: var(--font-body);
-    min-height:100vh;
+    /* min-height:100vh; */
   }
 
   h1,h2,h3,h4,h5,h6{
     font-family: var(--font-heading);
   }
 p{
-  @apply text-[16px] leading-[1.5];
+  @apply md:text-[16px] text-[14px] leading-normal;
 }
 }
 

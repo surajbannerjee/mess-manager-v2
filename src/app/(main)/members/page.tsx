@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
+import Members from "@/screens/Members/Members";
+
+export default function MembersPage() {
   return (
-    <div>page</div>
+    <Members />
   );
 };
-
-export default page;

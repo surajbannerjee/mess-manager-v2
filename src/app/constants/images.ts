@@ -17,6 +17,7 @@ export const IMAGES = {
   BACKGROUND11: image("/assets/images/bg11.jpg"),
   BACKGROUND12: image("/assets/images/bg12.jpg"),
   GOOGLE: image("/assets/images/google.svg"),
+  AVATAR: image("/assets/images/avatar.png"),
 } as const;
 
 export const VIDEOS = {

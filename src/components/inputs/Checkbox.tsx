@@ -29,7 +29,7 @@ const Checkbox = ({
     if (checked) {
       gsap.to(boxRef.current, {
         backgroundColor: "#222",
-        borderColor: "#222",
+        borderColor: "#fff",
         duration: 0.2,
         ease: "power2.out",
       });
@@ -52,7 +52,7 @@ const Checkbox = ({
     } else {
       gsap.to(boxRef.current, {
         backgroundColor: "transparent",
-        borderColor: "rgba(255,255,255,.3)",
+        borderColor: "rgb(255 255 255 / 56%)",
         duration: 0.2,
       });
 
@@ -78,7 +78,7 @@ const Checkbox = ({
         <div
           ref={boxRef}
           className={cn(
-            "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border border-white/30 bg-white/10",
+            "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border border-white bg-white/10",
             className,
           )}
         >
@@ -89,10 +89,10 @@ const Checkbox = ({
           />
         </div>
 
-        <div className="text-sm leading-6 text-white/80">{children}</div>
+        <div className="text-sm leading-6 font-semibold text-white/80">{children}</div>
       </label>
 
-      {error && <p className="pl-9 text-xs text-red-500">{error}</p>}
+      {error && <p className="pl-9 text-xs font-semibold text-red-500">{error}</p>}
     </div>
   );
 };

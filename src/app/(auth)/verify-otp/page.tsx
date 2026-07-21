@@ -1,19 +1,38 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import Link from "next/link"
 
 import { IMAGES } from "@/app/constants/images";
 import OTPInput from "@/components/inputs/OTPInput";
 import PrimaryButton from "@/components/buttons/PrimaryButton";
+import { useRouter } from "next/navigation";
+import BackButton from "@/components/navigation/BackButton";
+import Logo from "@/components/layout/logo";
 
 export default function VerifyOTP() {
-  const [otp, setOtp] = useState("");
+const router = useRouter();
+
+const [otp, setOtp] = useState("");
+const [timeLeft, setTimeLeft] = useState(45); // 45 seconds
+
+const minutes = String(Math.floor(timeLeft / 60)).padStart(2, "0");
+const seconds = String(timeLeft % 60).padStart(2, "0");
+useEffect(() => {
+  if (timeLeft <= 0) return;
+
+  const timer = setInterval(() => {
+    setTimeLeft((prev) => prev - 1);
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, [timeLeft]);
+
 
   return (
     <main
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat px-5"
+      className="relative flex h-screen items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat px-5"
       style={{
         backgroundImage: `url(${IMAGES.BACKGROUND6})`,
       }}
@@ -21,18 +40,15 @@ export default function VerifyOTP() {
       <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 w-full rounded-3xl border border-white/15 bg-dark/15 p-6 backdrop-blur-2xl">
+     <div className="absolute left-5 top-5">
+  <BackButton />
+</div>
         <div className="mb-8 flex flex-col items-center">
-          <Image
-            src={IMAGES.LOGO}
-            alt="Logo"
-            width={70}
-            height={70}
-            className="mb-4 rounded-full"
-          />
+        <Logo className="mb-4" />
 
           <h1 className="text-3xl font-bold text-white">Verify OTP</h1>
 
-          <p className="mt-2 text-center text-sm text-white/70">
+          <p className="mt-2 text-center font-semibold text-sm text-white/70">
             Enter the verification code sent to
           </p>
 
@@ -50,26 +66,32 @@ export default function VerifyOTP() {
         />
 
         <div className="mt-8 text-center">
-          <p className="text-white/60">Code expires in</p>
+          <p className="font-medium text-white/60">Code expires in</p>
 
-          <p className="mt-1 text-xl font-bold text-primary">00:45</p>
+        <p className="mt-1 text-xl font-bold text-primary">
+  {minutes}:{seconds}
+</p>
         </div>
 
         <div className="mt-8">
-          <PrimaryButton disabled={otp.length !== 6}>Verify OTP</PrimaryButton>
+          <PrimaryButton onClick={() => router.push("/forgot-password")} disabled={otp.length !== 4}>Verify OTP</PrimaryButton>
         </div>
 
-        <p className="mt-6 text-center text-sm text-white/70">
-          Didn't receive the code?{" "}
-          <button className="font-semibold text-primary">Resend OTP</button>
+        <p className="mt-6 text-center text-white/70">
+          Didn{"'"}t receive the code?{" "}
+          <button
+          disabled={timeLeft > 0}
+  onClick={() => {
+    // Call Resend OTP API
+    setTimeLeft(45);
+  }}
+  className={`font-semibold ${
+    timeLeft > 0
+      ? "cursor-not-allowed text-white/40"
+      : "text-primary hover:underline"
+  }`}>Resend OTP</button>
         </p>
 
-        <Link
-          href="/login"
-          className="mt-6 block text-center text-sm text-white/70 hover:text-primary"
-        >
-          ← Back to Login
-        </Link>
       </div>
     </main>
   );

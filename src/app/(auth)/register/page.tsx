@@ -6,12 +6,11 @@ import { IMAGES } from "@/app/constants/images";
 import PrimaryButton from "@/components/buttons/PrimaryButton";
 import TextInput from "@/components/inputs/TextInput";
 import PasswordInput from "@/components/inputs/PasswordInput";
-import { User, Mail, Phone } from "lucide-react";
-import Checkbox from "@/components/inputs/Checkbox";
+import { User, Mail, Phone, HousePlus } from "lucide-react";
 import { useState } from "react";
+import Logo from "@/components/layout/logo";
 
 export default function RegisterPage() {
-  const [agree, setAgree] = useState(false);
   
   return (
     <main
@@ -24,13 +23,7 @@ export default function RegisterPage() {
       <div className="relative z-10 w-full rounded-3xl border border-white/15 bg-dark/15 p-6 backdrop-blur-2xl">
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center">
-          <Image
-            src={IMAGES.LOGO}
-            alt="Logo"
-            width={70}
-            height={70}
-            className="mb-4 rounded-full"
-          />
+         <Logo className="mb-4" />
 
           <h1 className="text-center text-3xl font-bold text-white">
             Create Account
@@ -62,7 +55,11 @@ export default function RegisterPage() {
             startContent="+91"
             leftIcon={<Phone size={18} />}
           />
-
+          <TextInput
+            label="Create Mess Name"
+            placeholder="Enter your mess name"
+            leftIcon={<HousePlus size={18} />}
+          />
           <PasswordInput label="Password" placeholder="Create password" />
 
           <PasswordInput
@@ -70,25 +67,9 @@ export default function RegisterPage() {
             placeholder="Confirm password"
           />
 
-          {/* Checkbox */}
-          <Checkbox
-            checked={agree}
-            onChange={(e) => setAgree(e.target.checked)}
-          >
-            I agree to the{" "}
-            <Link href="/terms" className="text-primary-hover font-semibold">
-              Terms
-            </Link>{" "}
-            &{" "}
-            <Link
-              href="/privacy-policy"
-              className="text-primary-hover font-semibold"
-            >
-              Privacy Policy
-            </Link>
-          </Checkbox>
+          
 
-          <PrimaryButton disabled={!agree}>Create Account</PrimaryButton>
+          <PrimaryButton>Create Account</PrimaryButton>
         </form>
 
         {/* Divider */}

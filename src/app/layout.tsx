@@ -5,11 +5,13 @@ import { Funnel_Display, Instrument_Sans, Geist } from "next/font/google";
 // Ignore the type error for this import since it is intentionally a global stylesheet.
 
 // @ts-ignore
+
 import "./globals.css";
 import ThemeProvider from "@/context/ThemeProvider";
 import { cn } from "@/lib/utils";
+import AppLayout from "@/components/layout/AppLayout";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const funnelDisplay = Funnel_Display({
   subsets: ["latin"],
@@ -44,9 +46,9 @@ export default function RootLayout({
     >
       <body className="h-full bg-black flex justify-center antialiased">
         <ThemeProvider>
-          <div className="relative w-full max-w-125">
+          <AppLayout>
             {children}
-          </div>
+          </AppLayout>
         </ThemeProvider>
       </body>
     </html>

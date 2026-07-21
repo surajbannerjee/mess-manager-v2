@@ -1,9 +1,9 @@
 "use client";
 
-const page = () => {
+import Settings from "@/screens/Settings/Settings";
+
+export default function SettingsPage() {
   return (
-    <div>page</div>
+    <Settings />
   );
 };
-
-export default page;
