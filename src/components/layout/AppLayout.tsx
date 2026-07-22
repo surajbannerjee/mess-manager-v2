@@ -25,6 +25,7 @@ export default function AppLayout({
     "/verify-otp",
     "/reset-password",
     "/welcome",
+    "/create-password",
   ];
 
 

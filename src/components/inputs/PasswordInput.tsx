@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Lock } from "lucide-react";
 import BaseInput, { BaseInputProps } from "./BaseInput";
 
 const PasswordInput = (props: BaseInputProps) => {
@@ -11,6 +11,7 @@ const PasswordInput = (props: BaseInputProps) => {
     <BaseInput
       {...props}
       type={showPassword ? "text" : "password"}
+      leftIcon={<Lock size={18} />}
       rightIcon={
         <button
           type="button"

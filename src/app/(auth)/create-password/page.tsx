@@ -6,11 +6,11 @@ import { Mail } from "lucide-react";
 import React from "react";
 import { useRouter } from 'next/navigation';
 import { IMAGES } from "@/app/constants/images";
-import TextInput from "@/components/inputs/TextInput";
 import PrimaryButton from "@/components/buttons/PrimaryButton";
 import Logo from "@/components/layout/logo";
+import PasswordInput from "@/components/inputs/PasswordInput";
 
-export default function ForgotPasswordPage() {
+export default function CreatePasswordPage() {
   const router = useRouter();
     const [loading, setLoading] = React.useState(false);
   return (
@@ -27,37 +27,29 @@ export default function ForgotPasswordPage() {
         <Logo className="mb-4" />
 
           <h1 className="text-3xl font-bold text-white">
-            Forgot Password
+            Create Password
           </h1>
 
           <p className="mt-2 text-center leading-6 text-white/70">
             Enter your registered email address.
-            We{"'"}ll send you a verification code to reset your password.
+            We{"'"}ll send you a verification code to create your new password.
           </p>
         </div>
 
         <div className="space-y-6">
-          <TextInput
-            label="Email Address"
-            type="email"
-            placeholder="Enter your email"
-            leftIcon={<Mail size={18} />}
+       <PasswordInput
+
+        label="New Password" placeholder="Create password" />
+
+          <PasswordInput
+            label="Confirm Password"
+            placeholder="Confirm password"
           />
 
          <PrimaryButton 
-         onClick={() => router.push("/create-password")}
-          loading={loading}>Send Reset OTP </PrimaryButton>
+          loading={loading}>Set Password</PrimaryButton>
         </div>
 
-        <p className="text-center mt-4">
-          Remember your password?{" "}
-          <Link
-            href="/login"
-            className="text-primary text-shadow-2xl font-semibold px-1"
-          >
-            Sign In
-          </Link>
-        </p>
       </div>
     </main>
   );
